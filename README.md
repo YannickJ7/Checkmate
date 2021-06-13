@@ -1,1 +1,1 @@
-# checkmate
+Welkom bij checkmate!
