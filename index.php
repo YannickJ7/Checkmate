@@ -52,10 +52,7 @@ if(!empty($_POST['delete_task'])){
 
 <?php
 
-foreach ($lists as $list) :
-
-    ?>
-
+foreach ($lists as $list) :?>
     <div id="list-decoration-search" class="col-md-4">
             <div class="container">
                 <div class="card h-100 breed">
@@ -64,26 +61,25 @@ foreach ($lists as $list) :
                             <p class="card-text"><?= htmlspecialchars($list->description); ?></p>
 
                             <p class="card-text"><?= htmlspecialchars($list->deadline);?></p>
-                        </div>
 
                     <?php $tasks = $taskClass->getTasks($user, $list->id);
 
                     foreach ($tasks as $task) :
                     ?>
+                    <div class="taak">
                     <h5 class="card-title"><?= htmlspecialchars($task->title); ?></h5>
                     <p class="card-text"><?= htmlspecialchars($task->hours); ?></p>
 
                     <p class="card-text"><?= htmlspecialchars($task->deadline);?></p>
                     <form action="" method="post">
-                        <div>
                             <input type="hidden" name="task_id"
                                    value="<?= htmlspecialchars($task->id);?>" placeholder="naam" />
                             <input id="task" type="submit" name="delete_task"
                                    value="Verwijder Taak" />
-                        </div>
                     </form>
-                </div>
-                <?php endforeach ?>
+                    </div>
+
+                    <?php endforeach ?>
                     <form action="" method="post">
                         <div>
                             <input type="hidden" name="list_id"
@@ -94,7 +90,9 @@ foreach ($lists as $list) :
                 </form>
                 </div>
             </div>
-        </div>
+            </div>
+    </div>
+
 
 <?php endforeach ?>
 </ul>
