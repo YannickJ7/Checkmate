@@ -50,7 +50,7 @@ if (!empty($_POST['list'])) {
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="../../css/style.css">
 
-	<title>Checkmate | List</title>
+	<title>Checkmate | Lijst maken</title>
 </head>
 <body>
 		<div>

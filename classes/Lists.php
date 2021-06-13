@@ -117,4 +117,24 @@ class Lists
 
             }
 
+    public static function getLists($user)
+    {
+        //Database connection
+        $conn = Db::getConnection();
+
+        //Prepare the INSERT query
+        $statement = $conn->prepare("SELECT * FROM lists WHERE user_id = :id");
+
+        //Bind values to parameters from prepared query
+        $statement->bindValue(":id", $user->getId());
+        $statement->execute();
+
+        //Execute query
+        $result = $statement->fetchAll(\PDO::FETCH_OBJ);
+
+        //Return the results from the query
+        return $result;
+
+    }
+
 }
