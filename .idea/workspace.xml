@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="60c72c92-6926-4466-a089-1f10b6203af2" name="Default Changelist" comment="test">
+      <change afterPath="$PROJECT_DIR$/classes/Db.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/includes/bootstrap.include.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/auth/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/auth/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/auth/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/auth/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/auth/register.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="982ad0d3-7a47-4b9e-aebb-d39c47b2871a" />
+  </component>
+  <component name="ProjectId" id="1tqexOruNs0MGnK8QMDsRISe3Z7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Bokaal" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\checkmate" />
+      <recent name="C:\xampp\htdocs\Checkmate\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Checkmate\js" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="60c72c92-6926-4466-a089-1f10b6203af2" name="Default Changelist" comment="" />
+      <created>1623501292641</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623501292641</updated>
+      <workItem from="1623501293917" duration="1978000" />
+      <workItem from="1623503322963" duration="13000" />
+      <workItem from="1623569047355" duration="4175000" />
+    </task>
+    <task id="LOCAL-00001" summary="Structuur opbouwen van het project">
+      <created>1623501851751</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623501851751</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Structuur opbouwen van het project">
+      <created>1623501963868</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623501963868</updated>
+    </task>
+    <task id="LOCAL-00003" summary="readme file toevoegen">
+      <created>1623502422515</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623502422515</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test">
+      <created>1623502809839</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623502809839</updated>
+    </task>
+    <task id="LOCAL-00005" summary="test">
+      <created>1623502943667</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623502943667</updated>
+    </task>
+    <task id="LOCAL-00006" summary="test">
+      <created>1623503015601</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1623503015601</updated>
+    </task>
+    <task id="LOCAL-00007" summary="test">
+      <created>1623569062174</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1623569062174</updated>
+    </task>
+    <task id="LOCAL-00008" summary="test">
+      <created>1623569285845</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1623569285845</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Structuur opbouwen van het project" />
+    <MESSAGE value="readme file toevoegen" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
+  </component>
+</project>
