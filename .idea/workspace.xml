@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60c72c92-6926-4466-a089-1f10b6203af2" name="Default Changelist" comment="test">
-      <change afterPath="$PROJECT_DIR$/classes/Db.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php/includes/bootstrap.include.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/auth/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/auth/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/auth/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/auth/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/auth/register.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Lists.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/lists/create_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
       <updated>1623501292641</updated>
       <workItem from="1623501293917" duration="1978000" />
       <workItem from="1623503322963" duration="13000" />
-      <workItem from="1623569047355" duration="4175000" />
+      <workItem from="1623569047355" duration="6965000" />
     </task>
     <task id="LOCAL-00001" summary="Structuur opbouwen van het project">
       <created>1623501851751</created>
