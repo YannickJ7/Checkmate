@@ -7,8 +7,26 @@ require_once(__DIR__ . "/classes/Lists.php");
 
 $user = new classes\User($_SESSION['user']);
 $list = new classes\Lists();
+$taskClass = new classes\Task();
+
 
 $lists = $list->getLists($user);
+
+
+if(!empty($_POST['create_task'])){
+    $user = new classes\User($_SESSION['user']);
+
+    session_status();
+    $_SESSION['list_id'] = $_POST['list_id'];
+    header('Location: php/tasks/create_task.php');
+}
+
+if(!empty($_POST['delete_task'])){
+    $user = new classes\User($_SESSION['user']);
+    $taskClass = new classes\Task();
+    $taskClass->deleteTask($user, $_POST['task_id']);
+}
+
 
 ?>
 
@@ -39,20 +57,45 @@ foreach ($lists as $list) :
     ?>
 
     <div id="list-decoration-search" class="col-md-4">
-        <div class="itemId" data-id="<?= htmlspecialchars($list->id); ?> ">
-            <div id="container-search" class="container">
+            <div class="container">
                 <div class="card h-100 breed">
-                    <form action="" method="post">
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($list->title); ?></h5>
                             <p class="card-text"><?= htmlspecialchars($list->description); ?></p>
 
                             <p class="card-text"><?= htmlspecialchars($list->deadline);?></p>
                         </div>
+
+                    <?php $tasks = $taskClass->getTasks($user, $list->id);
+
+                    foreach ($tasks as $task) :
+                    ?>
+                    <h5 class="card-title"><?= htmlspecialchars($task->title); ?></h5>
+                    <p class="card-text"><?= htmlspecialchars($task->hours); ?></p>
+
+                    <p class="card-text"><?= htmlspecialchars($task->deadline);?></p>
+                    <form action="" method="post">
+                        <div>
+                            <input type="hidden" name="task_id"
+                                   value="<?= htmlspecialchars($task->id);?>" placeholder="naam" />
+                            <input id="task" type="submit" name="delete_task"
+                                   value="Verwijder Taak" />
+                        </div>
+                    </form>
+                </div>
+                <?php endforeach ?>
+                    <form action="" method="post">
+                        <div>
+                            <input type="hidden" name="list_id"
+                                   value="<?= htmlspecialchars($list->id);?>" placeholder="naam" />
+                            <input id="task" type="submit" name="create_task"
+                                   value="Maak een taak aan" />
+                        </div>
+                </form>
                 </div>
             </div>
         </div>
-    </div>
+
 <?php endforeach ?>
 </ul>
 <script src="/js/jquery.min.js"></script>

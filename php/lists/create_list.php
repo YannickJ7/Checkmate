@@ -18,7 +18,6 @@ if (!empty($_POST['list'])) {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $deadline = $_POST['deadline'];
--
 
 
     $list->setUserId($user_id);

@@ -100,6 +100,7 @@ class Lists
         //Database connection
         $conn = Db::getConnection();
 
+
                 //Prepare the INSERT query
                 $statement = $conn->prepare("INSERT INTO lists (user_id, title, description, deadline) VALUES (:user_id, :title, :description,:deadline)");
 
