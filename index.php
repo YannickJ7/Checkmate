@@ -9,7 +9,6 @@ $user = new classes\User($_SESSION['user']);
 $list = new classes\Lists();
 $taskClass = new classes\Task();
 
-
 $lists = $list->getLists($user);
 
 
@@ -27,6 +26,11 @@ if(!empty($_POST['delete_task'])){
     $taskClass->deleteTask($user, $_POST['task_id']);
 }
 
+if(!empty($_POST['delete_list'])){
+    $user = new classes\User($_SESSION['user']);
+    $list = new classes\Lists();
+    $list->deleteList($user, $_POST['list_id']);
+}
 
 ?>
 
@@ -92,6 +96,12 @@ foreach ($lists as $list) :?>
                             <input id="task" type="submit" name="create_task"
                                    value="ADD TASK" />
                         </div>
+                        <form action="" method="post">
+                            <input type="hidden" name="list_id"
+                                   value="<?= htmlspecialchars($list->id);?>" placeholder="naam" />
+                            <input id="list" type="submit" name="delete_list"
+                                   value="Verwijder Lijst" />
+                    </form>
                 </form>
                 </div>
             </div>

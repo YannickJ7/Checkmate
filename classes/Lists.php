@@ -138,4 +138,24 @@ class Lists
 
     }
 
+    public static function deleteList($user, $list_id)
+    {
+        //Database connection
+        $conn = Db::getConnection();
+
+        //Prepare the INSERT query
+        $statement = $conn->prepare("DELETE FROM lists WHERE user_id = :id AND id = :list_id");
+
+        //Bind values to parameters from prepared query
+        $statement->bindValue(":id", $user->getId());
+        $statement->bindValue(":list_id", $list_id);
+
+        //Execute query
+        $result = $statement->execute();
+
+        //Return the results from the query
+        return $result;
+
+    }
+
 }

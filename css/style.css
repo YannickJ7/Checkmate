@@ -218,6 +218,31 @@ input[name="delete_task"]:hover{
 
 }
 
+#list{
+
+    font-size: 0.9em;
+    margin-left: 30%;
+    margin-top: 2%;
+    width: 40%;
+    color: #c2c2c2;
+    border: none;
+    padding: 5px 15px 5px 15px;
+    border-radius: 5px;
+
+}
+
+#list:hover{
+
+    color: white;
+    font-size: 0.9em;
+    width: 40%;
+    background-color: #ff0b0b;
+    border: none;
+    padding: 5px 15px 5px 15px;
+    border-radius: 5px;
+
+}
+
 /* CREATE_LIST */
 
     .create-list input{
