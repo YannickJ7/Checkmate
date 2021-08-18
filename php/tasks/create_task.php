@@ -53,10 +53,11 @@ if (!empty($_POST['task'])) {
     <title>Checkmate | Taak aanmaken</title>
 </head>
 <body>
-<div>
-    <h2 class="hoofdtitel">Voeg een taak toe</h2>
-</div>
 
+        <header>
+            <h2>Voeg een taak toe</h2>
+            <a href="../../index.php">BACK</a>
+        </header>
 <div>
 
     <form class="create-list" enctype="multipart/form-data" action="" method="post">

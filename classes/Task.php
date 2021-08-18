@@ -139,7 +139,7 @@ class Task
         $conn = Db::getConnection();
 
         //Prepare the INSERT query
-        $statement = $conn->prepare("SELECT * FROM tasks WHERE user_id = :id AND list_id = :list_id");
+        $statement = $conn->prepare("SELECT *  FROM tasks  WHERE user_id = :id AND list_id = :list_id  ORDER BY deadline ASC " );
 
         //Bind values to parameters from prepared query
         $statement->bindValue(":id", $user->getId());

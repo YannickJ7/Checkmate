@@ -49,15 +49,15 @@ if (!empty($_POST['list'])) {
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="../../css/style.css">
 
-	<title>Checkmate | Lijst maken</title>
+	<title>Checkmate | Make list</title>
 </head>
 <body>
+<div class="pattern">
 
         <header>
-            <h2 class="hoofdtitel">Make a list</h2>
+            <h2>Make a list</h2>
             <a href="../../index.php">BACK</a>
         </header>
-
 
 
 
@@ -86,9 +86,9 @@ if (!empty($_POST['list'])) {
             </div>
             <div id="result"> </div>
         </form>
-
 	<script src="../../js/jquery.min.js"></script>
 	<script src="../../js/bootstrap.js"></script>
+    </div>
 
 	</body>
 
