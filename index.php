@@ -62,7 +62,7 @@ foreach ($lists as $list) :?>
             <div class="container">
                 <div class="card h-100 breed">
                         <div class="card-body">
-                            <h5 class="card-title"><?= htmlspecialchars($list->title); ?></h5>
+                            <h5 class="card-title"><strong><?= htmlspecialchars($list->title); ?></strong></h5>
                             <p class="card-text"><?= htmlspecialchars($list->description); ?></p>
 
                             <p class="card-text"><strong>Deadline:  </strong><?= htmlspecialchars($list->deadline);?></p>

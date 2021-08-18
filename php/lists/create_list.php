@@ -52,11 +52,14 @@ if (!empty($_POST['list'])) {
 	<title>Checkmate | Lijst maken</title>
 </head>
 <body>
-		<div>
-            <h2 class="hoofdtitel">Maak een lijst</h2>
-        </div>
 
-	<div>
+        <header>
+            <h2 class="hoofdtitel">Make a list</h2>
+            <a href="../../index.php">BACK</a>
+        </header>
+
+
+
 
 		<form class="create-list" enctype="multipart/form-data" action="" method="post">
 
@@ -74,15 +77,15 @@ if (!empty($_POST['list'])) {
             </div>
 
 
-	<?php if (isset($error)) : ?>
-	<div><?php echo $error; ?></div>
-	<?php endif; ?>
+            <?php if (isset($error)) : ?>
+            <div><?php echo $error; ?></div>
+            <?php endif; ?>
 
-    <div class="form-group">
-        <input type="submit" class="list" value="Maak lijst" name="list">
-    </div>
-    <div id="result"> </div>
-</form>
+            <div class="form-group">
+                <input type="submit" class="list" value="Maak lijst" name="list">
+            </div>
+            <div id="result"> </div>
+        </form>
 
 	<script src="../../js/jquery.min.js"></script>
 	<script src="../../js/bootstrap.js"></script>
