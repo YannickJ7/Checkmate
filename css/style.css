@@ -1,0 +1,94 @@
+body{
+
+overflow-x: hidden;
+
+}
+
+/* LOGIN */
+
+.logo-login{
+    width: 30%;
+    margin-top: 10%;
+    margin-left: 195%;
+}
+
+#loginBTN{
+    width: 100%;
+    margin-top: 5%;
+    margin-left: 15%;
+}
+
+#log-form{
+
+    margin-left: 150%;
+    width: 100%;
+
+}
+
+.input-login {
+
+width: 130%;
+margin-top: 5%;
+margin-bottom: 5%;
+font-size: 1.5em;
+border: none;
+border-bottom: 3px solid #007BFF;
+
+}
+
+.login-p{
+    margin-left: 30%;
+}
+
+.logo-bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+
+/* REGISTER */
+
+.register .form-group{
+
+    width: 40%;
+
+border: none;
+margin-left: 55%;
+}
+
+.register input {
+
+width: 95%;
+float: right;
+border: none;
+border-bottom: 3px solid #007BFF;
+margin-top: 4%;
+margin-bottom: 4%;
+font-size: 1.5em;
+
+}
+.register i{
+
+color: #007BFF;
+margin-top: 7%;
+margin-bottom: 5%;
+font-size: 1.5em;
+}
+
+.register input[type="submit"] {
+
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    }
+
+    .login-p-reg-buy{
+
+        margin-left: 67%;
+    
+    }
+
+/* HOME */
+

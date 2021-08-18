@@ -96,6 +96,9 @@ foreach ($lists as $list) :?>
 
 <?php endforeach ?>
 </ul>
+
+<a href="./php/lists/create_list.php">LIJST MAKEN</a>
+
 <script src="/js/jquery.min.js"></script>
 
 

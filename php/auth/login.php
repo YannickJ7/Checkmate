@@ -46,10 +46,14 @@ if (!empty($_POST)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/style.css">
+
     <title>Checkmate | login</title>
 </head>
 
 <body>
+
+<img class="logo-bg" src="../../img/loginbg.png">
 
 <div class="container-fluid">
     <div class="row no-gutter">
@@ -59,12 +63,12 @@ if (!empty($_POST)) {
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
 
-                            <h3 class="titel-login">Welcome back!</h3>
+                            <img class="logo-login" src="../../img/logo.svg">
 
 
                             <?php if (isset($error)) : ?>
                                 <div class="col-md-9 col-lg-8 mx-auto">
-                                    <h3 class="login-heading mb-4" style="font-size: 15px; background-color:#F8D7DA; padding:10px; border-radius:10px;"><?php echo $error; ?></h3>
+                                    <h3 class="login-heading mb-4" style="font-size: 15px; background-color:#F8D7DA; padding:10px; border-radius:10px; margin-left: 270%; width: 100%; "><?php echo $error; ?></h3>
                                 </div>
                             <?php endif; ?>
 

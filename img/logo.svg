@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="214.123" height="311.972" viewBox="0 0 214.123 311.972">
+  <g id="Group_4" data-name="Group 4" transform="translate(-1332.886 -41.028)">
+    <g id="Group_2" data-name="Group 2" transform="translate(1369.459 41.028)">
+      <path id="Subtraction_2" data-name="Subtraction 2" d="M154,154H0V0H126.064l-3.509,11.117H11.117V142.883H142.883V22.812L154,15.449V154h0Z" transform="translate(0.427 46.972)" fill="#dbdbdb"/>
+      <path id="Icon_ionic-md-checkmark" data-name="Icon ionic-md-checkmark" d="M55.074,207.524,9.27,153.709l45.8,96.251L156.432,71.291Z" transform="translate(21.118 -71.291)" fill="#0669ff"/>
+    </g>
+    <text id="CHECK" transform="translate(1332.886 291)" fill="#0669ff" font-size="40" font-family="Poppins-Bold, Poppins" font-weight="700" letter-spacing="0.1em"><tspan x="0" y="0">CHECK</tspan></text>
+    <text id="MATE" transform="translate(1418.886 339)" fill="#0669ff" font-size="40" font-family="Poppins-Bold, Poppins" font-weight="700" letter-spacing="0.1em"><tspan x="0" y="0">MATE</tspan></text>
+  </g>
+</svg>

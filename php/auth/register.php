@@ -56,12 +56,17 @@ if (!empty($_POST['register'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
 
 </head>
 
 <body>
+<img class="logo-bg" src="../../img/loginbg.png">
 
 <div class="register ">
+
+
+
     <form action="" method="post">
         <h2 class="reg-buy-title">Registreer</h2>
         <?php if (!empty($error)) : ?>
@@ -101,7 +106,7 @@ if (!empty($_POST['register'])) {
         </div>
 
         <div id="reg-form-buyer-flex" class="form-group">
-            <input id="register" id="register" type="submit"  value="Registreer" name="register">
+            <input id="register" id="register" type="submit"  value="REGISTER" name="register">
         </div>
 
         <div id="result"> </div>
