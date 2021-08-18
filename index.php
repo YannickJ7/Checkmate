@@ -45,8 +45,13 @@ if(!empty($_POST['delete_task'])){
 
 <body>
 
+<header>
 <h2>Home </h2>
+<a href="./php/lists/create_list.php">MAKE LIST</a>
 
+
+
+</header>
 
 <ul class="row col-md-12">
 
@@ -60,17 +65,17 @@ foreach ($lists as $list) :?>
                             <h5 class="card-title"><?= htmlspecialchars($list->title); ?></h5>
                             <p class="card-text"><?= htmlspecialchars($list->description); ?></p>
 
-                            <p class="card-text"><?= htmlspecialchars($list->deadline);?></p>
+                            <p class="card-text"><strong>Deadline:  </strong><?= htmlspecialchars($list->deadline);?></p>
 
                     <?php $tasks = $taskClass->getTasks($user, $list->id);
 
                     foreach ($tasks as $task) :
                     ?>
-                    <div class="taak">
-                    <h5 class="card-title"><?= htmlspecialchars($task->title); ?></h5>
-                    <p class="card-text"><?= htmlspecialchars($task->hours); ?></p>
+                    <div class="task">
+                    <h5 class="card-title"><strong><?= htmlspecialchars($task->title); ?></strong></h5>
+                    <p class="card-text"><strong>Geplande uren:  </strong><?= htmlspecialchars($task->hours); ?></p>
 
-                    <p class="card-text"><?= htmlspecialchars($task->deadline);?></p>
+                    <p class="card-text"><strong>Tegen:  </strong><?= htmlspecialchars($task->deadline);?></p>
                     <form action="" method="post">
                             <input type="hidden" name="task_id"
                                    value="<?= htmlspecialchars($task->id);?>" placeholder="naam" />
@@ -85,7 +90,7 @@ foreach ($lists as $list) :?>
                             <input type="hidden" name="list_id"
                                    value="<?= htmlspecialchars($list->id);?>" placeholder="naam" />
                             <input id="task" type="submit" name="create_task"
-                                   value="Maak een taak aan" />
+                                   value="ADD TASK" />
                         </div>
                 </form>
                 </div>
@@ -97,7 +102,6 @@ foreach ($lists as $list) :?>
 <?php endforeach ?>
 </ul>
 
-<a href="./php/lists/create_list.php">LIJST MAKEN</a>
 
 <script src="/js/jquery.min.js"></script>
 
