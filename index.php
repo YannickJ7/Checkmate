@@ -32,6 +32,13 @@ if(!empty($_POST['delete_list'])){
     $list->deleteList($user, $_POST['list_id']);
 }
 
+if(!empty($_POST['done_task'])){
+    $user = new classes\User($_SESSION['user']);
+    $taskClass = new classes\Task();
+    $taskClass->doneTask($user, $_POST['task_id']);
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -71,25 +78,44 @@ foreach ($lists as $list) :?>
                             <p class="card-text"><?= htmlspecialchars($list->description); ?></p>
 
                             <p class="card-text"><strong>Deadline:  </strong><?= htmlspecialchars($list->deadline);?></p>
+                            
+                            <p class="status"><strong>TO DO </strong></p>
+
 
                     <?php $tasks = $taskClass->getTasks($user, $list->id);
 
                     foreach ($tasks as $task) :
                     ?>
-                    <div class="task">
-                    <h5 class="card-title"><strong><?= htmlspecialchars($task->title); ?></strong></h5>
-                    <p class="card-text"><strong>Geplande uren:  </strong><?= htmlspecialchars($task->hours); ?></p>
 
-                    <p class="card-text"><strong>Tegen:  </strong><?= htmlspecialchars($task->deadline);?></p>
-                    <form action="" method="post">
-                            <input type="hidden" name="task_id"
-                                   value="<?= htmlspecialchars($task->id);?>" placeholder="naam" />
-                            <input id="task" type="submit" name="delete_task"
-                                   value="Verwijder Taak" />
-                    </form>
-                    </div>
+                        <?php if($task->status == 'to do'){ ?>
+
+                            <div class="task">
+                            <h5 class="card-title"><strong><?= htmlspecialchars($task->title); ?></strong></h5>
+                            <p class="card-text"><strong>Geplande uren:  </strong><?= htmlspecialchars($task->hours); ?></p>
+
+                            <p class="card-text"><strong>Tegen:  </strong><?= htmlspecialchars($task->deadline);?></p>
+                            <form action="" method="post">
+                                    <input type="hidden" name="task_id"
+                                        value="<?= htmlspecialchars($task->id);?>" placeholder="naam" />
+                                    <input id="task" type="submit" name="delete_task"
+                                        value="Verwijder Taak" />
+                            </form>
+
+                            <form action="" method="post">
+                                    <input type="hidden" name="task_id"
+                                        value="<?= htmlspecialchars($task->id);?>" placeholder="naam" />
+                                    <input id="doneTask" type="submit" name="done_task"
+                                        value="Done" />
+                            </form>
+
+                            </div>
+                        <?php } ?>
 
                     <?php endforeach ?>
+
+
+                    <p class="status"><strong>DONE </strong></p>
+
                     <form action="" method="post">
                         <div>
                             <input type="hidden" name="list_id"

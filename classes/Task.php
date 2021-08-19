@@ -143,7 +143,7 @@ class Task
         $statement->bindValue(":title", $this->getTitle());
         $statement->bindValue(":hours", $this->getHours());
         $statement->bindValue(":deadline", $this->getDeadline());
-        $statement->bindValue(":status", 'to do');
+        $statement->bindValue(":status", "to do");
 
 
         //Execute query
@@ -195,4 +195,22 @@ class Task
         return $result;
 
     }
+
+    public function doneTask($user, $task_id)
+    {
+        $conn = Db::getConnection();
+
+        $statement = $conn->prepare("UPDATE tasks SET status = :status, user_id = :id WHERE id = :task_id");
+        
+        $statement->bindValue(':status', "done");
+        $statement->bindValue(":id", $user->getId());
+        $statement->bindValue(":task_id", $task_id);
+
+        $result = $statement->execute();
+
+        return $result;
+
+    }
+
+
 }

@@ -123,7 +123,7 @@ class Lists
         //Database connection
         $conn = Db::getConnection();
 
-        //Prepare the INSERT query
+        //Prepare the SELECT query
         $statement = $conn->prepare("SELECT * FROM lists WHERE user_id = :id");
 
         //Bind values to parameters from prepared query
@@ -143,8 +143,9 @@ class Lists
         //Database connection
         $conn = Db::getConnection();
 
-        //Prepare the INSERT query
+        //Prepare the DELETE query
         $statement = $conn->prepare("DELETE FROM lists WHERE user_id = :id AND id = :list_id");
+
 
         //Bind values to parameters from prepared query
         $statement->bindValue(":id", $user->getId());
