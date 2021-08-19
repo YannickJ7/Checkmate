@@ -12,6 +12,7 @@ class Task
     private $title;
     private $hours;
     private $deadline;
+    private $status;
 
     /**
      * @return mixed
@@ -109,6 +110,24 @@ class Task
         $this->deadline = $deadline;
     }
 
+    /**
+     * Get the value of status
+     */ 
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set the value of status
+     */ 
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
     public function save_task()
     {
         //Database connection
@@ -116,7 +135,7 @@ class Task
 
         print_r([ $this->getUserId(),  $this->getListId(),$this->getTitle(),$this->getHours(),   $this->getDeadline() ]);
         //Prepare the INSERT query
-        $statement = $conn->prepare("INSERT INTO tasks (user_id,list_id, title, hours, deadline) VALUES (:user_id,:list_id, :title, :hours,:deadline)");
+        $statement = $conn->prepare("INSERT INTO tasks (user_id,list_id, title, hours, deadline, status) VALUES (:user_id,:list_id, :title, :hours,:deadline, :status)");
 
         //Bind values to parameters from prepared query
         $statement->bindValue(":user_id", $this->getUserId());
@@ -124,6 +143,8 @@ class Task
         $statement->bindValue(":title", $this->getTitle());
         $statement->bindValue(":hours", $this->getHours());
         $statement->bindValue(":deadline", $this->getDeadline());
+        $statement->bindValue(":status", 'to do');
+
 
         //Execute query
         $result = $statement->execute();
