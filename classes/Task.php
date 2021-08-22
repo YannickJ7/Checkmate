@@ -212,5 +212,19 @@ class Task
 
     }
 
+    public function toDoTask($user, $task_id)
+    {
+        $conn = Db::getConnection();
 
+        $statement = $conn->prepare("UPDATE tasks SET status = :status, user_id = :id WHERE id = :task_id");
+        
+        $statement->bindValue(':status', "to do");
+        $statement->bindValue(":id", $user->getId());
+        $statement->bindValue(":task_id", $task_id);
+
+        $result = $statement->execute();
+
+        return $result;
+
+    }
 }

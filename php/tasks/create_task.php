@@ -57,7 +57,7 @@ if (!empty($_POST['task'])) {
 
         <header>
             <h2>Voeg een taak toe</h2>
-            <a href="../../index.php">BACK</a>
+            <a class="headerbutton" href="../../index.php">BACK</a>
         </header>
 <div>
 

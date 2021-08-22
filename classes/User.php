@@ -8,6 +8,7 @@ class User
     private $fullname;
     private $email;
     private $password;
+    private $is_admin;
 
     /**
      * @return mixed
@@ -88,6 +89,19 @@ class User
         $this->password = $password;
 
         return $this;
+    }
+
+    public function getIsAdmin()
+    {
+        return $this->is_admin;
+    }
+
+    /**
+     * @param mixed $is_admin
+     */
+    public function setIsAdmin($is_admin)
+    {
+        $this->is_admin = $is_admin;
     }
 
     //Magic function __construct that gets called every time a new User() is made

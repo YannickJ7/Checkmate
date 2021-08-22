@@ -11,7 +11,6 @@ $taskClass = new classes\Task();
 
 $lists = $list->getLists($user);
 
-
 if(!empty($_POST['create_task'])){
     $user = new classes\User($_SESSION['user']);
 
@@ -38,7 +37,11 @@ if(!empty($_POST['done_task'])){
     $taskClass->doneTask($user, $_POST['task_id']);
 }
 
-
+if(!empty($_POST['todo_task'])){
+    $user = new classes\User($_SESSION['user']);
+    $taskClass = new classes\Task();
+    $taskClass->toDoTask($user, $_POST['task_id']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -59,9 +62,20 @@ if(!empty($_POST['done_task'])){
 
 <header>
 <h2>Home </h2>
-<a href="./php/lists/create_list.php">MAKE LIST</a>
 
+<a class="logout" href="./php/auth/logout.php">LOG OUT</a>
 
+<a class="headerbutton" href="./php/lists/create_list.php">MAKE LIST</a>
+
+<?php foreach ($user as $user) :?>
+
+    <?php if($user->is_admin == 1){ ?>
+
+        <a class="headerbutton" href="./statistics.php">STATISTICS</a>
+
+    <?php } ?>
+
+<?php endforeach ?>
 
 </header>
 
@@ -92,8 +106,28 @@ foreach ($lists as $list) :?>
                             <div class="task">
                             <h5 class="card-title"><strong><?= htmlspecialchars($task->title); ?></strong></h5>
                             <p class="card-text"><strong>Geplande uren:  </strong><?= htmlspecialchars($task->hours); ?></p>
-
                             <p class="card-text"><strong>Tegen:  </strong><?= htmlspecialchars($task->deadline);?></p>
+
+                            <?php
+/*
+                            //A: RECORDS TODAY'S Date And Time
+                            $today = time();
+                            
+                            $timestamp = date("Y/m/d", $today); 
+
+                            //B: RECORDS Date And Time OF YOUR EVENT
+                            $event = $task->deadline;
+
+
+                            //C: COMPUTES THE DAYS UNTIL THE EVENT.
+                            $countdown = round(($today -  $event)/86400);
+
+                            //D: DISPLAYS COUNTDOWN UNTIL EVENT
+                            echo "$event Dagen tot deadline";*/
+
+
+                            ?>
+
                             <form action="" method="post">
                                     <input type="hidden" name="task_id"
                                         value="<?= htmlspecialchars($task->id);?>" placeholder="naam" />
@@ -116,6 +150,39 @@ foreach ($lists as $list) :?>
 
                     <p class="status"><strong>DONE </strong></p>
 
+                    <?php $tasks = $taskClass->getTasks($user, $list->id);
+
+                        foreach ($tasks as $task) :
+                        ?>
+
+                            <?php if($task->status == 'done'){ ?>
+
+                                <div class="task">
+                                <h5 class="card-title"><strong><?= htmlspecialchars($task->title); ?></strong></h5>
+                                <p class="card-text"><strong>Geplande uren:  </strong><?= htmlspecialchars($task->hours); ?></p>
+
+                                <p class="card-text"><strong>Tegen:  </strong><?= htmlspecialchars($task->deadline);?></p>
+                                <form action="" method="post">
+                                        <input type="hidden" name="task_id"
+                                            value="<?= htmlspecialchars($task->id);?>" placeholder="naam" />
+                                        <input id="task" type="submit" name="delete_task"
+                                            value="Verwijder Taak" />
+                                </form>
+
+                                <form action="" method="post">
+                                        <input type="hidden" name="task_id"
+                                            value="<?= htmlspecialchars($task->id);?>" placeholder="naam" />
+                                        <input id="toDoTask" type="submit" name="todo_task"
+                                            value="To Do" />
+                                </form>
+
+                                </div>
+                            <?php } ?>
+
+                        <?php endforeach ?>
+
+
+                        
                     <form action="" method="post">
                         <div>
                             <input type="hidden" name="list_id"

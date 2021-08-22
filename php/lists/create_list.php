@@ -57,7 +57,7 @@ if (!empty($_POST['list'])) {
 
         <header>
             <h2>Make a list</h2>
-            <a href="../../index.php">BACK</a>
+            <a class="headerbutton" href="../../index.php">BACK</a>
         </header>
 
 
