@@ -91,6 +91,10 @@ class User
         return $this;
     }
 
+        /**
+     * @return mixed
+     */
+
     public function getIsAdmin()
     {
         return $this->is_admin;
@@ -122,6 +126,7 @@ class User
             $this->fullname = $user->fullname;
             $this->email = $user->email;
             $this->password = $user->password;
+            $this->is_admin = $user->is_admin;
 
         }
     }
@@ -166,5 +171,28 @@ class User
             return false;
         }
     }
+
+    public static function getUsers($user)
+    {
+        //Database connection
+        $conn = Db::getConnection();
+
+        //Prepare the SELECT query
+        $statement = $conn->prepare("SELECT * FROM users ");
+
+        //Bind values to parameters from prepared query
+        $statement->bindValue(":id", $user->getId());
+        $statement->execute();
+
+        //Execute query
+        $result = $statement->fetchAll(\PDO::FETCH_OBJ);
+
+        //Return the results from the query
+        return $result;
+
+    }
+
+
+    
 
 }

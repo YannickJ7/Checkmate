@@ -10,6 +10,7 @@ $list = new classes\Lists();
 $taskClass = new classes\Task();
 
 $lists = $list->getLists($user);
+$users = $user->getUsers($user);
 
 if(!empty($_POST['create_task'])){
     $user = new classes\User($_SESSION['user']);
@@ -67,15 +68,16 @@ if(!empty($_POST['todo_task'])){
 
 <a class="headerbutton" href="./php/lists/create_list.php">MAKE LIST</a>
 
-<?php foreach ($user as $user) :?>
 
-    <?php if($user->is_admin == 1){ ?>
+
+
+
+    <?php if($user->getIsAdmin() == 1){ ?>
 
         <a class="headerbutton" href="./statistics.php">STATISTICS</a>
 
     <?php } ?>
 
-<?php endforeach ?>
 
 </header>
 
