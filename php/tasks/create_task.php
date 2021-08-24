@@ -47,7 +47,7 @@ if (!empty($_POST['task'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="icon" href="../../img/favicon.png" type="image/png">
 
@@ -57,6 +57,9 @@ if (!empty($_POST['task'])) {
 
         <header>
             <h2>Voeg een taak toe</h2>
+
+            <a class="logout" href="./php/auth/logout.php">LOG OUT</a>
+
             <a class="headerbutton" href="../../index.php">BACK</a>
         </header>
 <div>

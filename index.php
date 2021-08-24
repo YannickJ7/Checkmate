@@ -76,6 +76,9 @@ if(!empty($_POST['todo_task'])){
 
         <a class="headerbutton" href="./statistics.php">STATISTICS</a>
 
+        <a class="headerbutton" href="./php/admins/create_admin.php">MAKE ADMIN</a>
+
+
     <?php } ?>
 
 
