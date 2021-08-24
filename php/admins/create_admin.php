@@ -3,8 +3,46 @@
 include_once(__DIR__ . "/../includes/bootstrap.include.php");
 require_once(__DIR__ . "/../../classes/Db.php");
 require_once(__DIR__ . "/../../classes/User.php");
-require_once(__DIR__ . "/../../classes/Lists.php");
 
+if (!empty($_POST['register'])) {
+
+    //Put $_POST variables into variables
+    //Convert the email string to lowercase, case sensitivity does not matter here
+    $fullname = $_POST['fullname'];
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmPassword'];
+    $email = strtolower($_POST['email']);
+    if ($password == $confirmPassword) {
+        $user = new classes\User($email);
+
+        //Set the user's properties
+        //setEmail returns an error message if the email is not a valid email or if it's not unique
+        $valid_email = $user->setEmail($email);
+        $user->setFullname($fullname);
+        $user->setPassword($password);
+
+
+        //If setEmail returns a string, show the error message
+        if (gettype($valid_email) == "string") {
+            $error = $valid_email;
+        } else {
+
+            //Save the user
+            $user->save_admin();
+
+
+            $user = new classes\User($email);
+
+            
+
+        }
+    }
+
+    $error = 'Wachtwoorden komen niet overeen';
+
+    $confirmation = 'Gebruiker succesvol aangemaakt';
+
+}
 
 ?>
 
@@ -35,11 +73,6 @@ require_once(__DIR__ . "/../../classes/Lists.php");
 
         <form class="create-list" action="" method="post">
 
-        <?php if (!empty($error)) : ?>
-            <div style="font-size: 15px; background-color:#F8D7DA; padding:10px; border-radius:10px;">
-                <p class="login-p"><?= $error ?></p>
-            </div>
-        <?php endif; ?>
         <?php if (isset($succesfull)) : ?>
             <div style="font-size: 15px; background-color:#90EE90; padding:10px; border-radius:10px;">
                 <?php echo $succesfull; ?></div>

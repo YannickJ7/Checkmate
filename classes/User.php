@@ -151,6 +151,26 @@ class User
         return $result;
     }
 
+    public function save_admin()
+    {
+        //Database connection
+        $conn = Db::getConnection();
+
+        //Prepare the INSERT query
+        $statement = $conn->prepare("INSERT INTO users (fullname,email, password, is_admin) VALUES (:fullname, :email, :password, 1)");
+
+        //Bind values to parameters from prepared query
+        $statement->bindValue(":fullname", $this->getFullname());
+        $statement->bindValue(":email", $this->getEmail());
+        $statement->bindValue(":password", $this->getPassword());
+
+        //Execute query
+        $result = $statement->execute();
+
+        //Return the results from the query
+        return $result;
+    }
+
     public static function checkPassword($email, $password): bool
     {
         //Prepared \PDO statement that fetches the password corresponding to the inputted email
