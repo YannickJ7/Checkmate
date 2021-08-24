@@ -193,6 +193,22 @@ class User
     }
 
 
-    
+    public static function countUsers()
+    {
+        //Database connection
+        $conn = Db::getConnection();
+
+        //Prepare the SELECT query
+        $statement = $conn->prepare("SELECT COUNT(*) FROM users ");
+        
+        $statement->execute();
+
+        //Execute query
+        $result = $statement->fetch(\PDO::FETCH_COLUMN);
+
+        //Return the results from the query
+        return $result;
+
+    }
 
 }

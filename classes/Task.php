@@ -227,4 +227,26 @@ class Task
         return $result;
 
     }
+
+    public static function averageHours($user)
+    {
+        //Database connection
+        $conn = Db::getConnection();
+
+        //Prepare the SELECT query
+        $statement = $conn->prepare("SELECT AVG(hours) FROM tasks WHERE user_id = user_id ");
+        
+
+        //Bind values to parameters from prepared query
+
+        $statement->execute();
+
+        //Execute query
+        $result = $statement->fetch(\PDO::FETCH_COLUMN);
+
+        //Return the results from the query
+        return $result;
+
+    }
+
 }

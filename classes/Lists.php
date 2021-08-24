@@ -159,4 +159,42 @@ class Lists
 
     }
 
+    public static function countLists()
+    {
+        //Database connection
+        $conn = Db::getConnection();
+
+        //Prepare the SELECT query
+        $statement = $conn->prepare("SELECT COUNT(*) FROM lists ");
+        
+        $statement->execute();
+
+        //Execute query
+        $result = $statement->fetch(\PDO::FETCH_COLUMN);
+
+        //Return the results from the query
+        return $result;
+
+    }
+
+    public static function averageLists($user)
+    {
+        //Database connection
+        $conn = Db::getConnection();
+
+        //Prepare the SELECT query
+        $statement = $conn->prepare("SELECT COUNT(*) FROM lists WHERE user_id = user_id");
+        
+        //Bind values to parameters from prepared query
+        $statement->bindValue(":id", $user->getId());
+
+        $statement->execute();
+
+        //Execute query
+        $result = $statement->fetch(\PDO::FETCH_COLUMN);
+
+        //Return the results from the query
+        return $result;
+
+    }
 }

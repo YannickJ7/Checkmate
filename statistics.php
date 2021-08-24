@@ -4,11 +4,20 @@ include_once(__DIR__ . "/php/includes/bootstrap.include.php");
 require_once(__DIR__ . "/classes/Db.php");
 require_once(__DIR__ . "/classes/User.php");
 require_once(__DIR__ . "/classes/Lists.php");
+require_once(__DIR__ . "/classes/Task.php");
+
 
 $user = new classes\User($_SESSION['user']);
 $list = new classes\Lists();
+$task = new classes\Task();
+
 
 $lists = $list->getLists($user);
+$countlists = $list->countLists();
+$countusers = $user->countUsers();
+$averagehours = $task->averageHours($user);
+$averagelists = $list->averageLists($user);
+
 $users = $user->getUsers($user);
 ?>
 
@@ -38,58 +47,13 @@ $users = $user->getUsers($user);
 
 </header>
 
-<p class="stat">
-<?php
-$con=mysqli_connect("localhost","root","root","checkmate");
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+<p class="stat"> Er zijn momenteel <strong> <?php echo $countusers; ?> gebruikers.</strong> </p>
 
-$sql="SELECT * FROM users ";
+<p class="stat"> Er zijn momenteel <strong> <?php echo $countlists; ?> lijsten.</strong>  </p>
 
-if ($result=mysqli_query($con,$sql))
-  {
-  // Return the number of rows in result set
-  $rowcount=mysqli_num_rows($result);
-  printf("Er zijn momenteel <strong> %d gebruikers </strong> .\n",$rowcount);
-  // Free result set
-  mysqli_free_result($result);
-  }
+<p class="stat"> Er zijn momenteel gemiddeld <strong> <?php echo round($averagehours,1); ?> uren gepland per gebruiker.</strong> </p>
 
-mysqli_close($con);
-
-?>
-</p>
-
-<p class="stat">
-<?php
-$con=mysqli_connect("localhost","root","root","checkmate");
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
-
-$sql="SELECT * FROM lists ";
-
-if ($result=mysqli_query($con,$sql))
-  {
-  // Return the number of rows in result set
-  $rowcount=mysqli_num_rows($result);
-
-  printf("Er zijn momenteel <strong> %d lijsten </strong> .\n",$rowcount);
-  
-  // Free result set
-  mysqli_free_result($result);
-  }
-
-mysqli_close($con);
-
-?>
-</p>
-
+<p class="stat"> Er zijn momenteel gemiddeld <strong> <?php echo round($averagelists); ?> lijsten per gebruiker.</strong> </p>
 
 <script src="/js/jquery.min.js"></script>
 
