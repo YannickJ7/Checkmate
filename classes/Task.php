@@ -12,6 +12,7 @@ class Task
     private $title;
     private $hours;
     private $deadline;
+    private $upload;
     private $status;
 
     /**
@@ -108,6 +109,24 @@ class Task
     public function setDeadline($deadline): void
     {
         $this->deadline = $deadline;
+    }
+
+    /**
+     * Get the value of status
+     */ 
+    public function getUpload()
+    {
+        return $this->upload;
+    }
+
+    /**
+     * Set the value of status
+     */ 
+    public function setUpload($upload)
+    {
+        $this->upload = $upload;
+
+        return $this;
     }
 
     /**
@@ -248,5 +267,29 @@ class Task
         return $result;
 
     }
+
+    public static function orderTasks($user, $list_id)
+    {
+        //Database connection
+        $conn = Db::getConnection();
+
+        //Prepare the INSERT query
+        $statement = $conn->prepare("SELECT *  FROM tasks  WHERE user_id = :id AND list_id = :list_id  ORDER BY hours DES " );
+
+        //Bind values to parameters from prepared query
+        $statement->bindValue(":id", $user->getId());
+        $statement->bindValue(":list_id", $list_id);
+
+        $statement->execute();
+
+        //Execute query
+        $result = $statement->fetchAll(\PDO::FETCH_OBJ);
+
+        //Return the results from the query
+        return $result;
+
+    }
+
+    
 
 }

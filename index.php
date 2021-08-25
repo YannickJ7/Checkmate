@@ -43,6 +43,12 @@ if(!empty($_POST['todo_task'])){
     $taskClass = new classes\Task();
     $taskClass->toDoTask($user, $_POST['task_id']);
 }
+
+if(!empty($_GET['order_task'])){
+    $user = new classes\User($_SESSION['user']);
+    $taskClass = new classes\Task();
+    $taskClass->orderTasks($user, $_POST['task_id']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +95,7 @@ if(!empty($_POST['todo_task'])){
 <?php
 
 foreach ($lists as $list) :?>
+
     <div id="list-decoration-search" class="col-md-4">
             <div class="container">
                 <div class="card h-100 breed">
@@ -132,6 +139,12 @@ foreach ($lists as $list) :?>
 
 
                             ?>
+
+                            <form action="index.php" method="post" enctype="multipart/form-data" >
+                                <h3>Upload File</h3>
+                                <input type="file" name="myfile"> <br>
+                                <button type="submit" name="save">upload</button>
+                            </form>
 
                             <form action="" method="post">
                                     <input type="hidden" name="task_id"
