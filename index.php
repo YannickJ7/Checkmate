@@ -12,6 +12,7 @@ $taskClass = new classes\Task();
 $lists = $list->getLists($user);
 $users = $user->getUsers($user);
 
+
 if(!empty($_POST['create_task'])){
     $user = new classes\User($_SESSION['user']);
 
@@ -51,8 +52,11 @@ if(!empty($_GET['order_task'])){
 }
 
 if (!empty($_POST['uploadFile'])) {
+    $task_id = $_POST['task_id'];
+
     try {
-      $taskClass->saveUpload($user);
+        
+      $taskClass->saveUpload($task_id);
     } catch (\Throwable $th) {
       $error = $th->getMessage();
     }
@@ -128,6 +132,7 @@ foreach ($lists as $list) :?>
                             <h5 class="card-title"><strong><?= htmlspecialchars($task->title); ?></strong></h5>
                             <p class="card-text"><strong>Geplande uren:  </strong><?= htmlspecialchars($task->hours); ?></p>
                             <p class="card-text"><strong>Tegen:  </strong><?= htmlspecialchars($task->deadline);?></p>
+                            <p class="card-text"><strong>File:  </strong><?= htmlspecialchars($task->upload);?></p>
 
                             <?php
 /*
@@ -150,6 +155,7 @@ foreach ($lists as $list) :?>
                             ?>
 
                             <form enctype="multipart/form-data" action="" method="POST">
+                                <input type="hidden" name="task_id" value="<?= $task->id;?>" />
                                 <input class="upload" type="file" id="upload" name="upload" capture="camera" required />
                                 <input class="uploadbutton" type="submit" value="Upload" name="uploadFile" />
                             </form>
@@ -188,6 +194,15 @@ foreach ($lists as $list) :?>
                                 <p class="card-text"><strong>Geplande uren:  </strong><?= htmlspecialchars($task->hours); ?></p>
 
                                 <p class="card-text"><strong>Tegen:  </strong><?= htmlspecialchars($task->deadline);?></p>
+
+                                <p class="card-text"><strong>File:  </strong><?= htmlspecialchars($task->upload);?></p>
+
+                                <form enctype="multipart/form-data" action="" method="POST">
+                                <input type="hidden" name="task_id" value="<?= $task->id;?>" />
+                                <input class="upload" type="file" id="upload" name="upload" capture="camera" required />
+                                <input class="uploadbutton" type="submit" value="Upload" name="uploadFile" />
+                                </form>
+
                                 <form action="" method="post">
                                         <input type="hidden" name="task_id"
                                             value="<?= htmlspecialchars($task->id);?>" placeholder="naam" />

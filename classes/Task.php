@@ -288,7 +288,7 @@ class Task
 
     }
 
-    public function saveUpload($user)
+    public function saveUpload($task_id)
     {
         //Put all $_FILES array values in seperate variables
         $fileName = $_FILES['upload']['name'];
@@ -318,9 +318,9 @@ class Task
 
                 //Put the file path in the database
                 $conn = Db::getConnection();
-                $statement = $conn->prepare("UPDATE tasks WHERE user_id =:id SET upload = ('" . $_FILES['upload']['name'] . "')  ");
+                $statement = $conn->prepare("UPDATE tasks SET upload = ('" . $_FILES['upload']['name'] . "') WHERE id = :task_id   ");
 
-                $statement->bindValue(":id", $user->getId());
+                $statement->bindValue(":task_id", $task_id);
 
                 $upload = $statement->execute();
                 return $upload;

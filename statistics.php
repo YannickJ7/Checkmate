@@ -19,6 +19,7 @@ $averagehours = $task->averageHours($user);
 $averagelists = $list->averageLists($user);
 
 $users = $user->getUsers($user);
+
 ?>
 
 <!DOCTYPE html>
