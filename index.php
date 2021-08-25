@@ -4,13 +4,16 @@ include_once(__DIR__ . "/php/includes/bootstrap.include.php");
 require_once(__DIR__ . "/classes/Db.php");
 require_once(__DIR__ . "/classes/User.php");
 require_once(__DIR__ . "/classes/Lists.php");
+require_once(__DIR__ . "/classes/Upload.php");
 
 $user = new classes\User($_SESSION['user']);
 $list = new classes\Lists();
 $taskClass = new classes\Task();
+$upload = new classes\Upload();
 
 $lists = $list->getLists($user);
 $users = $user->getUsers($user);
+$uploads = $upload->save_upload();
 
 if(!empty($_POST['create_task'])){
     $user = new classes\User($_SESSION['user']);
@@ -140,8 +143,8 @@ foreach ($lists as $list) :?>
 
                             ?>
 
-                            <form action="index.php" method="post" enctype="multipart/form-data" >
-                                <h3>Upload File</h3>
+                            <form action="#" method="post" enctype="multipart/form-data" >
+                                <h3 class="uploadTitle">Upload File</h3>
                                 <input type="file" name="myfile"> <br>
                                 <button type="submit" name="save">upload</button>
                             </form>

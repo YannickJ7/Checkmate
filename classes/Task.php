@@ -12,7 +12,6 @@ class Task
     private $title;
     private $hours;
     private $deadline;
-    private $upload;
     private $status;
 
     /**
@@ -109,24 +108,6 @@ class Task
     public function setDeadline($deadline): void
     {
         $this->deadline = $deadline;
-    }
-
-    /**
-     * Get the value of status
-     */ 
-    public function getUpload()
-    {
-        return $this->upload;
-    }
-
-    /**
-     * Set the value of status
-     */ 
-    public function setUpload($upload)
-    {
-        $this->upload = $upload;
-
-        return $this;
     }
 
     /**
