@@ -77,7 +77,7 @@ if (!empty($_POST['list'])) {
 			</div>
 
             <div class="form-sell">
-            <input type="date" class="select-items-select-price"  name="deadline"  placeholder="Deadline" required>
+            <input type="date" class="select-items-select-price"  name="deadline"  placeholder="Deadline">
             </div>
 
 

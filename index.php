@@ -33,6 +33,12 @@ if(!empty($_POST['delete_list'])){
     $list->deleteList($user, $_POST['list_id']);
 }
 
+if(!empty($_POST['delete_upload'])){
+    $user = new classes\User($_SESSION['user']);
+    $taskClass = new classes\Task();
+    $taskClass->deleteUpload($user, $_POST['task_id']);
+}
+
 if(!empty($_POST['done_task'])){
     $user = new classes\User($_SESSION['user']);
     $taskClass = new classes\Task();
@@ -153,6 +159,12 @@ foreach ($lists as $list) :?>
 
 
                             ?>
+                            <form action="" method="post">
+                                <input type="hidden" name="task_id"
+                                        value="<?= htmlspecialchars($task->id);?>" />
+                                <input id="uploaddelete" type="submit" name="delete_upload"
+                                        value="Verwijder File" />
+                            </form>
 
                             <form enctype="multipart/form-data" action="" method="POST">
                                 <input type="hidden" name="task_id" value="<?= $task->id;?>" />
@@ -194,8 +206,16 @@ foreach ($lists as $list) :?>
                                 <p class="card-text"><strong>Geplande uren:  </strong><?= htmlspecialchars($task->hours); ?></p>
 
                                 <p class="card-text"><strong>Tegen:  </strong><?= htmlspecialchars($task->deadline);?></p>
-
+                                
                                 <p class="card-text"><strong>File:  </strong><?= htmlspecialchars($task->upload);?></p>
+
+
+                                <form action="" method="post">
+                                        <input type="hidden" name="task_id"
+                                            value="<?= htmlspecialchars($task->id);?>" />
+                                        <input id="uploaddelete" type="submit" name="delete_upload"
+                                            value="Verwijder File" />
+                                </form>
 
                                 <form enctype="multipart/form-data" action="" method="POST">
                                 <input type="hidden" name="task_id" value="<?= $task->id;?>" />

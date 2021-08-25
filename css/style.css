@@ -227,7 +227,20 @@ input[name="delete_task"]:hover{
     padding-bottom: 15%;
 
 }
+#uploaddelete{
 
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    width: 30%;
+    height: 30px;
+    margin-bottom: 5%;
+    background-color: #ff0b0b;
+    border: none;
+    padding: auto;
+    border-radius: 5px;
+   
+}
 .uploadbutton{
 
     color: white;
