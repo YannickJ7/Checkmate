@@ -228,15 +228,32 @@ input[name="delete_task"]:hover{
 
 }
 
-.uploadTitle{
+.uploadbutton{
 
-    font-size: 1em;
+    color: white;
+    font-size: 0.9em;
     font-weight: bold;
-    margin-top: 5%;
-    margin-left: -5%;
+    width: 20%;
+    height: 30px;
+    margin-right: 5%;
+    float: left;
+    background-color: #007BFF;
     border: none;
-    padding: 5px 15px 5px 15px;
+    padding: auto;
     border-radius: 5px;
+
+}
+
+.uploadbutton:hover{
+
+    background-color: #428cdb;
+
+
+}
+
+.upload{
+
+    margin-bottom: 5%;
 
 }
 

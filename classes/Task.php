@@ -12,6 +12,7 @@ class Task
     private $title;
     private $hours;
     private $deadline;
+    private $upload;
     private $status;
 
     /**
@@ -108,6 +109,22 @@ class Task
     public function setDeadline($deadline): void
     {
         $this->deadline = $deadline;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpload()
+    {
+        return $this->upload;
+    }
+
+    /**
+     * @param mixed $upload
+     */
+    public function setUpload($upload): void
+    {
+        $this->upload = $upload;
     }
 
     /**
@@ -271,6 +288,41 @@ class Task
 
     }
 
-    
+    public function saveUpload()
+    {
+        //Put all $_FILES array values in seperate variables
+        $fileName = $_FILES['upload']['name'];
+        $fileTmpName = $_FILES['upload']['tmp_name'];
+        $fileSize = $_FILES['upload']['size'];
+        $fileError = $_FILES['upload']['error'];
+
+        //Get the file extension
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+
+        //Make an array with allowed extensions
+        $allowed = array('jpg', 'jpeg', 'png', 'pdf', 'docx');
+
+        if (!(in_array($fileActualExt, $allowed))) {
+            //If the file is not a valid extension
+            throw new \Exception("Can't save a file of this type.");
+        } elseif ($fileSize > 2000000) {
+            //If the file is too big
+            throw new \Exception("Your file is too big.");
+        } else {
+            if ($fileError === 0) {
+                define ('SITE_ROOT', realpath(dirname(__FILE__)));
+
+                $fileDestination = '../uploads/' . $fileName;
+                move_uploaded_file($fileTmpName, $fileDestination);
+
+                //Put the file path in the database
+                $conn = Db::getConnection();
+                $statement = $conn->prepare("UPDATE tasks  SET upload = ('" . $_FILES['upload']['name'] . "')");
+                $upload = $statement->execute();
+                return $upload;
+            }
+        }
+    }
 
 }
