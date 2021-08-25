@@ -49,6 +49,15 @@ if(!empty($_GET['order_task'])){
     $taskClass = new classes\Task();
     $taskClass->orderTasks($user, $_POST['task_id']);
 }
+
+if (!empty($_POST['uploadFile'])) {
+    try {
+      $taskClass->saveUpload($user);
+    } catch (\Throwable $th) {
+      $error = $th->getMessage();
+    }
+  }
+
 ?>
 
 <!DOCTYPE html>

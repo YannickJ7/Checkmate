@@ -288,7 +288,7 @@ class Task
 
     }
 
-    public function saveUpload()
+    public function saveUpload($user)
     {
         //Put all $_FILES array values in seperate variables
         $fileName = $_FILES['upload']['name'];
@@ -313,12 +313,15 @@ class Task
             if ($fileError === 0) {
                 define ('SITE_ROOT', realpath(dirname(__FILE__)));
 
-                $fileDestination = '../uploads/' . $fileName;
+                $fileDestination = '../uploads' . $fileName;
                 move_uploaded_file($fileTmpName, $fileDestination);
 
                 //Put the file path in the database
                 $conn = Db::getConnection();
-                $statement = $conn->prepare("UPDATE tasks  SET upload = ('" . $_FILES['upload']['name'] . "')");
+                $statement = $conn->prepare("UPDATE tasks WHERE user_id =:id SET upload = ('" . $_FILES['upload']['name'] . "')  ");
+
+                $statement->bindValue(":id", $user->getId());
+
                 $upload = $statement->execute();
                 return $upload;
             }
