@@ -36,7 +36,7 @@ if(!empty($_POST['delete_list'])){
 if(!empty($_POST['delete_upload'])){
     $user = new classes\User($_SESSION['user']);
     $taskClass = new classes\Task();
-    $taskClass->deleteUpload($user, $_POST['task_id']);
+    $taskClass->deleteUpload($_POST['task_id']);
 }
 
 if(!empty($_POST['done_task'])){
@@ -138,27 +138,19 @@ foreach ($lists as $list) :?>
                             <h5 class="card-title"><strong><?= htmlspecialchars($task->title); ?></strong></h5>
                             <p class="card-text"><strong>Geplande uren:  </strong><?= htmlspecialchars($task->hours); ?></p>
                             <p class="card-text"><strong>Tegen:  </strong><?= htmlspecialchars($task->deadline);?></p>
+
+                            <p class="timer">
+                            <?php
+                            $datetime1 = new DateTime();
+                            $datetime2 = new DateTime($task->deadline);
+                            $interval = $datetime1->diff($datetime2);
+                            echo $interval->format('<strong> Deadline binnen </strong> %d dag(en) %h uur');
+                            ?>
+                            </p>
+
                             <p class="card-text"><strong>File:  </strong><?= htmlspecialchars($task->upload);?></p>
 
-                            <?php
-/*
-                            //A: RECORDS TODAY'S Date And Time
-                            $today = time();
-                            
-                            $timestamp = date("Y/m/d", $today); 
 
-                            //B: RECORDS Date And Time OF YOUR EVENT
-                            $event = $task->deadline;
-
-
-                            //C: COMPUTES THE DAYS UNTIL THE EVENT.
-                            $countdown = round(($today -  $event)/86400);
-
-                            //D: DISPLAYS COUNTDOWN UNTIL EVENT
-                            echo "$event Dagen tot deadline";*/
-
-
-                            ?>
                             <form action="" method="post">
                                 <input type="hidden" name="task_id"
                                         value="<?= htmlspecialchars($task->id);?>" />
@@ -207,7 +199,17 @@ foreach ($lists as $list) :?>
 
                                 <p class="card-text"><strong>Tegen:  </strong><?= htmlspecialchars($task->deadline);?></p>
                                 
+                                <p class="timer">
+                                <?php 
+                                $datetime1 = new DateTime();
+                                $datetime2 = new DateTime($task->deadline);
+                                $interval = $datetime1->diff($datetime2);
+                                echo $interval->format('<strong> Deadline binnen </strong> %d dag(en) %h uur');
+                                ?>
+                                </p>
+
                                 <p class="card-text"><strong>File:  </strong><?= htmlspecialchars($task->upload);?></p>
+
 
 
                                 <form action="" method="post">

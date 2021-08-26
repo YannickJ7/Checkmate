@@ -213,16 +213,15 @@ class Task
 
     }
 
-    public static function deleteUpload($user, $task_id)
+    public static function deleteUpload($task_id)
     {
         //Database connection
         $conn = Db::getConnection();
 
         //Prepare the INSERT query
-        $statement = $conn->prepare("DELETE upload FROM tasks WHERE user_id = :id AND id = :task_id");
+        $statement = $conn->prepare("DELETE upload FROM tasks WHERE id = :task_id");
 
         //Bind values to parameters from prepared query
-        $statement->bindValue(":id", $user->getId());
         $statement->bindValue(":task_id", $task_id);
 
         //Execute query

@@ -241,6 +241,13 @@ input[name="delete_task"]:hover{
     border-radius: 5px;
    
 }
+
+#uploaddelete:hover{
+
+    background-color: #bb0e0e;
+   
+}
+
 .uploadbutton{
 
     color: white;
