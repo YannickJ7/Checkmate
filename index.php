@@ -109,6 +109,15 @@ if (!empty($_POST['uploadFile'])) {
 
 </header>
 
+<?php
+        if(count($lists) <= 0){ ?>
+
+
+            <img class="placeholder" src="./img/placeholder.png" alt="placeholder">
+
+
+        <?php } else { ?>
+
 <ul class="row col-md-12">
 
 <?php
@@ -145,6 +154,7 @@ foreach ($lists as $list) :?>
                             $datetime2 = new DateTime($task->deadline);
                             $interval = $datetime1->diff($datetime2);
                             echo $interval->format('<strong> Deadline binnen </strong> %d dag(en) %h uur');
+
                             ?>
                             </p>
 
@@ -268,6 +278,7 @@ foreach ($lists as $list) :?>
 
 <?php endforeach ?>
 </ul>
+<?php } ?>
 
 
 <script src="/js/jquery.min.js"></script>

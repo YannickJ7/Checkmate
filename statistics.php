@@ -54,7 +54,7 @@ $users = $user->getUsers($user);
 
 <p class="stat"> Er zijn momenteel gemiddeld <strong> <?php echo round($averagehours,1); ?> uren gepland per gebruiker.</strong> </p>
 
-<p class="stat"> Er zijn momenteel gemiddeld <strong> <?php echo round($averagelists); ?> lijsten per gebruiker.</strong> </p>
+<!-- <p class="stat"> Er zijn momenteel gemiddeld <strong> <?php echo round($averagelists); ?> lijsten per gebruiker.</strong> </p> -->
 
 <script src="/js/jquery.min.js"></script>
 

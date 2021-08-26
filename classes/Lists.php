@@ -154,6 +154,19 @@ class Lists
         //Execute query
         $result = $statement->execute();
 
+        //Database connection
+        $conn = Db::getConnection();
+
+        //Prepare the DELETE query
+        $statement = $conn->prepare("DELETE FROM tasks WHERE list_id = :list_id");
+
+
+        //Bind values to parameters from prepared query
+        $statement->bindValue(":list_id", $list_id);
+
+        //Execute query
+        $result = $statement->execute();
+
         //Return the results from the query
         return $result;
 

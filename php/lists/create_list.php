@@ -53,7 +53,6 @@ if (!empty($_POST['list'])) {
 	<title>Checkmate | Make list</title>
 </head>
 <body>
-<div class="pattern">
 
         <header>
             <h2>Make a list</h2>
@@ -92,7 +91,6 @@ if (!empty($_POST['list'])) {
         </form>
 	<script src="../../js/jquery.min.js"></script>
 	<script src="../../js/bootstrap.js"></script>
-    </div>
 
 	</body>
 
